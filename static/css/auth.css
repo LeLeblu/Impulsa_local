@@ -1,0 +1,250 @@
+/* --- Variables de Paleta de Colores --- */
+:root {
+    --bg-principal: #6B84EB;
+    --bg-navbar: #3B54B4;
+    --bg-footer: #8E51C9;
+    --btn-verde: #10DC60;
+    --btn-verde-hover: #0ece54;
+    --btn-celeste: #4FAAFF;
+    --btn-celeste-hover: #3996f0;
+    --border-linea: #EBF3FF;
+}
+
+/* --- Estilos Generales --- */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-principal);
+    min-height: 100vh;
+    display: flex;
+    place-content: column;
+    flex-direction: column;
+}
+
+/* --- Componente: Navbar de la Alcaldía --- */
+.header-alcaldia {
+    background-color: var(--bg-navbar);
+    color: #ffffff;
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-circulo {
+    background-color: #ffffff;
+    color: var(--bg-navbar);
+    font-weight: bold;
+    font-size: 12px;
+    padding: 6px 8px;
+    border-radius: 50%;
+}
+
+.texto-alcaldia h1 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: 0.5px;
+}
+
+.texto-alcaldia p {
+    font-size: 11px;
+    margin: 0;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.decoracion-ventana {
+    display: flex;
+    gap: 6px;
+}
+
+.circulo-ventana {
+    width: 12px;
+    height: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+}
+
+/* --- Contenedor Principal --- */
+.main-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.auth-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* --- Componente: Pestañas (Tabs) --- */
+.tabs-container {
+    display: flex;
+    align-items: flex-end;
+    padding-left: 15px;
+    gap: 5px;
+}
+
+.tab-link {
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 24px;
+    border-radius: 12px 12px 0 0;
+    transition: background-color 0.2s ease;
+}
+
+.tab-active-white {
+    background-color: #ffffff;
+    color: #4A5568;
+    border-top: 1px solid #E2E8F0;
+    border-left: 1px solid #E2E8F0;
+    border-right: 1px solid #E2E8F0;
+    z-index: 10;
+    margin-bottom: -1px;
+}
+
+.tab-btn-verde {
+    background-color: var(--btn-verde);
+    color: #ffffff;
+    margin-bottom: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tab-btn-verde:hover {
+    background-color: var(--btn-verde-hover);
+}
+
+.tab-btn-azul {
+    background-color: var(--bg-navbar);
+    color: #ffffff;
+    margin-bottom: 2px;
+}
+
+/* --- Componente: Tarjeta Blanca Central --- */
+.auth-card {
+    background-color: #ffffff;
+    border-radius: 0 12px 12px 12px;
+    padding: 35px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.form-interno {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.titulo-contexto {
+    color: #A0AEC0;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.separador {
+    height: 1px;
+    background-color: var(--border-linea);
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* --- Formularios y Campos de Entrada --- */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: #718096;
+    margin-bottom: 4px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #CBD5E0;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #2D3748;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--btn-celeste);
+}
+
+/* --- Botón de Acción Principal --- */
+.btn-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-continuar {
+    background-color: var(--btn-celeste);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.btn-continuar:hover {
+    background-color: var(--btn-celeste-hover);
+}
+
+.error-alert {
+    font-size: 12px;
+    color: #E53E3E;
+    background-color: #FFF5F5;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* --- Componente: Footer Morado --- */
+.footer-contactanos {
+    background-color: var(--bg-footer);
+    color: #ffffff;
+    padding: 12px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.icon-red {
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.icon-red:hover {
+    opacity: 0.8;
+}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="auth-wrapper">
+    
+    <div class="tabs-container">
+        <a href="{% url 'login' %}" class="tab-link tab-active-white">Iniciar sesión</a>
+        <a href="{% url 'register' %}" class="tab-link tab-btn-verde">Registrarse</a>
+    </div>
+
+    <div class="auth-card">
+        <div class="form-interno">
+            <h3 class="titulo-contexto">Sign In</h3>
+            <div class="separador"></div>
+
+            <form method="post">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                    <div class="error-alert">Usuario o contraseña incorrectos.</div>
+                {% endif %}
+
+                <div class="form-group">
+                    <label for="{{ form.username.id_for_label }}" class="form-label">User Name:</label>
+                    <input type="text" name="username" id="{{ form.username.id_for_label }}" placeholder="johndoe" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label for="{{ form.password.id_for_label }}" class="form-label">Password:</label>
+                    <input type="password" name="password" id="{{ form.password.id_for_label }}" placeholder="********" class="form-input">
+                </div>
+
+                <div class="separador"></div>
+
+                <div class="btn-container">
+                    <button type="submit" class="btn-continuar">Continuar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

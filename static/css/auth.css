@@ -248,3 +248,28 @@ body {
 .icon-red:hover {
     opacity: 0.8;
 }
+
+/* --- Enlace de acceso para Administradores --- */
+.admin-link-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.admin-link {
+    display: inline-block;
+    font-size: 12px;
+    color: #718096; /* Gris sutil */
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.admin-link i {
+    margin-right: 4px; /* Espacio para el icono de candado */
+    font-size: 11px;
+}
+
+.admin-link:hover {
+    color: var(--bg-navbar); /* Cambia al azul institucional de la Alcaldía */
+    text-decoration: underline;
+}

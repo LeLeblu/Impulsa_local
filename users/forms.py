@@ -7,6 +7,8 @@ class EmprendedorRegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
     documento_identidad = forms.CharField(required=True, max_length=20)
     telefono = forms.CharField(required=True, max_length=15)
+    ubicación = forms.CharField(required=True, max_length=15)
+    actividad_economica = forms.CharField(required=True, max_length=20)
 
     class Meta(UserCreationForm.Meta):
         model = User
@@ -21,6 +23,22 @@ class EmprendedorRegistrationForm(UserCreationForm):
 
 
 class CustomLoginForm(AuthenticationForm):
-    # Formulario personalizado de login para añadir clases de estilo fácilmente
-    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'johndoe'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-input', 'placeholder': '********'}))
+
+    def clean(self):
+        # 1. Ejecuta la validación nativa de Django (verifica que el usuario y clave existan y sean correctos)
+        cleaned_data = super().clean()
+        user = self.user_cache  # Django guarda el usuario autenticado aquí temporalmente
+
+        # 2. Si el usuario es correcto, aplicamos la regla de negocio de la Alcaldía
+        if user is not None:
+            # Si tiene el estado de Staff (Admin) o su rol no es Emprendedor, lo rebotamos
+            if user.is_staff or user.role == User.Roles.ADMIN_ALCALDIA:
+                raise forms.ValidationError(
+                    "Acceso denegado. Este formulario es exclusivo para Emprendedores. "
+                    "Si eres funcionario, usa el enlace de la parte inferior.",
+                    code='invalid_login',
+                )
+        
+        return cleaned_data

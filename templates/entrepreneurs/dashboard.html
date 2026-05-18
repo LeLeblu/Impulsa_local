@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Impulsa Local{% endblock %}
+
+{% block content %}
+<div class="auth-wrapper">
+    
+    <div class="auth-card card-dashboard">
+        <div class="form-interno">
+            
+            <h3 class="titulo-contexto">Portal del Emprendedor</h3>
+            <div class="separador"></div>
+
+            <div class="avatar-contenedor">
+                <i class="fa-solid fa-circle-user avatar-icono"></i>
+                <h2 class="titulo-bienvenida">
+                    ¡Bienvenido, {{ request.user.first_name|default:request.user.username }}!
+                </h2>
+                <p class="subtitulo-rol">
+                    Rol: {{ request.user.get_role_display }}
+                </p>
+            </div>
+
+            <div class="separador"></div>
+
+            <p class="texto-informativo">
+                Has iniciado sesión correctamente en la plataforma <strong>Impulsa Local</strong> de la Alcaldía de Ciudad Nueva.
+            </p>
+
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn-continuar btn-cerrar-sesion">
+                    <i class="fa-solid fa-right-from-bracket"></i> Cerrar Sesión
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

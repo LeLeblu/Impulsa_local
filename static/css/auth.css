@@ -273,3 +273,46 @@ body {
     color: var(--bg-navbar); /* Cambia al azul institucional de la Alcaldía */
     text-decoration: underline;
 }
+
+/* --- Componente: Dashboard del Emprendedor --- */
+.card-dashboard {
+    border-radius: 12px;
+    text-align: center;
+}
+
+.avatar-contenedor {
+    margin-bottom: 25px;
+}
+
+.avatar-icono {
+    font-size: 50px;
+    color: var(--bg-navbar);
+    margin-bottom: 15px;
+}
+
+.titulo-bienvenida {
+    color: #2D3748;
+    font-size: 24px;
+    margin: 0;
+}
+
+.subtitulo-rol {
+    color: #718096;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.texto-informativo {
+    font-size: 14px;
+    color: #4A5568;
+    margin-bottom: 20px;
+}
+
+/* Botón de salida (Rojo) */
+.btn-cerrar-sesion {
+    background-color: #E53E3E;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #C53030;
+}

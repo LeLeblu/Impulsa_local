@@ -1,10 +1,10 @@
 
 
-from django.contrib.auth.models import AbstractUser # Importamos AbstractUser para extender el modelo de usuario predeterminado de Django
+from django.contrib.auth.models import AbstractUser # AbstractUser para extender el modelo de usuario predeterminado de Django
 from django.db import models
 
 class User(AbstractUser):
-    # Usamos elecciones (Choices) para definir los roles en el sistema
+    #  roles en el sistema
     class Roles(models.TextChoices):
         EMPRENDEDOR = 'EMPRENDEDOR', 'Emprendedor'
         ADMIN_ALCALDIA = 'ADMIN', 'Administrador Alcaldía'

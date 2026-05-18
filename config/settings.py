@@ -95,3 +95,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 # Configuración de autenticación personalizada
 AUTH_USER_MODEL = 'users.User'
+
+# El nombre de la URL definida en entrepreneurs/urls.py
+LOGIN_REDIRECT_URL = 'dashboard' 
+LOGOUT_REDIRECT_URL = 'login'

@@ -1,6 +1,17 @@
+# Entorno virtual
+env/
 venv/
-.env
+ENV/
+
+# Base de datos local
 db.sqlite3
-__pycache__/
+
+# Archivos estáticos recolectados y subidas de usuarios
+staticfiles/
 media/
-gemini/
+
+# Configuraciones locales ocultas
+.env
+*.pyc
+__pycache__/
+.DS_Store

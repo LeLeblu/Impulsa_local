@@ -8,10 +8,10 @@ class EmprendedorRegisterView(CreateView):
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')  # Redirige al login tras un registro exitoso
 
+# Personalizamos las vistas de Login y Logout para usar nuestros formularios y redirecciones específicas
 class CustomLoginView(LoginView):
     form_class = CustomLoginForm
     template_name = 'users/login.html'
-    # El destino tras el login se puede configurar aquí o en settings.py via LOGIN_REDIRECT_URL
-
+    
 class CustomLogoutView(LogoutView):
     next_page = reverse_lazy('login')  # Al cerrar sesión, vuelve al login

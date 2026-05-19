@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'programs.apps.ProgramsConfig',
 ]
 
+# Middleware de seguridad, sesiones, autenticación, etc.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -55,6 +56,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Configuración de URLs y WSGI
 ROOT_URLCONF = 'config.urls'
 WSGI_APPLICATION = 'config.wsgi.application'
 
@@ -76,7 +78,7 @@ TEMPLATES = [
 ]
 
 
-# Configuración de Base de Datos usando django-environ para flexibilidad entre entornos
+# Configuración de Base de Datos usando django-environ y variables de entorno
 DATABASES = {
     'default': env.db('DATABASE_URL', default=f'sqlite:///{BASE_DIR / "db.sqlite3"}')
 }
@@ -86,16 +88,16 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-# Carpeta donde producción recolectará los estáticos (opcional para desarrollo pero buena práctica)
+# Carpeta donde producción recolectará los estáticos 
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-# Configuración de Archivos Media (Documentos subidos, logos de emprendimientos, etc.)
+# Configuración de Archivos Media 
 MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 # Configuración de autenticación personalizada
 AUTH_USER_MODEL = 'users.User'
 
-# El nombre de la URL definida en entrepreneurs/urls.py
+# ruta de redirección después de login/logout
 LOGIN_REDIRECT_URL = 'dashboard' 
 LOGOUT_REDIRECT_URL = 'login'

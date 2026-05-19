@@ -1,4 +1,7 @@
-
+# models.py sirve para definir el modelo de datos personalizado para los usuarios, 
+# extendiendo el modelo de usuario predeterminado de Django para incluir campos adicionales como rol, 
+# teléfono y documento de identidad. Esto permite una gestión más flexible de los usuarios en 
+# la aplicación, diferenciando entre emprendedores y administradores de alcaldía.
 
 from django.contrib.auth.models import AbstractUser # AbstractUser para extender el modelo de usuario predeterminado de Django
 from django.db import models
@@ -18,4 +21,4 @@ class User(AbstractUser):
     documento_identidad = models.CharField(max_length=20, unique=True, blank=True, null=True)
 
     def __str__(self):
-        return f"{self.username} - {self.get_role_display()}"# Create your models here.
+        return f"{self.username} - {self.get_role_display()}"
